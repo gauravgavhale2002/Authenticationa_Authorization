@@ -80,3 +80,52 @@ cp /g/path/to/your/custom/README.md .
 git add README.md
 git commit -m "Replaced README.md with updated version"
 git push origin main
+
+
+gaura@GauravPc MINGW64 /g/Project Ao/Authentaication and Authoraztion/authapi/authapi (master)
+$ git push origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/gauravgavhale2002/Authenticationa_Authorization.git'
+
+
+ChatGPT said:
+Bhai ye error clearly bol raha hai:
+main branch local me exist hi nahi karti, isliye git push origin main fail ho raha hai.
+
+🔍 Why this happens?
+Tu currently master branch pe hai:
+
+lua
+Copy
+Edit
+(git status output)
+/authapi (master)
+But tu push kar raha:
+
+css
+Copy
+Edit
+git push origin main
+Iska matlab: Tu push kar raha hai main, lekin tu khud hai master pe.
+
+✅ Solution: 2 Option
+✅ Option 1: Push your current master branch to remote main branch
+bash
+Copy
+Edit
+git push origin master:main
+🟢 Isse tera local master remote ke main branch pe chala jayega.
+
+✅ Option 2: Rename your local branch to main and then push
+bash
+Copy
+Edit
+git branch -m main       # Rename master to main
+git push -u origin main  # Push & track
+🔍 Bonus Tip: Check all local branches
+bash
+Copy
+Edit
+git branch
+Check whether main hai ya sirf master.
+
